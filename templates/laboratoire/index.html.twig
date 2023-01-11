@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Laboratoire index{% endblock %}
+
+ {% block pagetitle %}
+     <a href="{{ path('app_laboratoire_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des Laboratoires
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_laboratoire_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+
+{% block body %}
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Lab no</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for laboratoire in laboratoires %}
+            <tr>
+                <td>{{ laboratoire.labno }}</td>
+                <td>{{ laboratoire.labnom }}</td>
+                <td>
+                    <a href="{{ path('app_laboratoire_show', {'id': laboratoire.id}) }}">show</a>
+                    <br>
+                    <a href="{{ path('app_laboratoire_edit', {'id': laboratoire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

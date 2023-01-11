@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication index{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_chercheur_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des publications
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_publication_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Pubno</th>
+            <th>Titre</th>
+            <th>Theme</th>
+            <th>Type</th>
+            <th>Volume</th>
+            <th>Date pubication</th>
+            <th>Apparition</th>
+            <th>Editeur</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for publication in publications %}
+            <tr>
+                <td>{{ publication.pubno }}</td>
+                <td>{{ publication.titre }}</td>
+                <td>{{ publication.theme }}</td>
+                <td>{{ publication.typepub }}</td>
+                <td>{{ publication.volume }}</td>
+                <td>{{ publication.datepub ? publication.datepub|date('Y-m-d') : '' }}</td>
+                <td>{{ publication.apparition }}</td>
+                <td>{{ publication.editeur }}</td>
+                <td>
+                    <a href="{{ path('app_publication_show', {'id': publication.id}) }}">show</a>
+                    <br>
+                    <a href="{{ path('app_publication_edit', {'id': publication.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

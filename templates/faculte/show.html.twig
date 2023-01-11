@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faculte{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_faculte_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des faculte
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_faculte_edit', {'id': faculte.id}) }}">Edit<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_faculte_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+    <h1>Faculte</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ faculte.id }}</td>
+            </tr>
+            <tr>
+                <th>Facno</th>
+                <td>{{ faculte.facno }}</td>
+            </tr>
+            <tr>
+                <th>Facnom</th>
+                <td>{{ faculte.facnom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ faculte.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ faculte.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ include('faculte/_delete_form.html.twig') }}
+{% endblock %}

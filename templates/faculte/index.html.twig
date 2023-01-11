@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faculte index{% endblock %}
+
+
+ {% block pagetitle %}
+     <a href="{{ path('app_faculte_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des faculte
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_faculte_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Fac No</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Libelle</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for faculte in facultes %}
+            <tr>
+                <td>{{ faculte.facno }}</td>
+                <td>{{ faculte.facnom }}</td>
+                <td>{{ faculte.adresse }}</td>
+                <td>{{ faculte.libelle }}</td>
+                <td>
+                    <a href="{{ path('app_faculte_show', {'id': faculte.id}) }}">show</a>
+                    <br>
+                    <a href="{{ path('app_faculte_edit', {'id': faculte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

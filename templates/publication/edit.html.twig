@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Publication{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_chercheur_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des publications
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Edit</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_publication_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+    {{ include('publication/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('publication/_delete_form.html.twig') }}
+{% endblock %}

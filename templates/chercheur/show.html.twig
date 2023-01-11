@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chercheur{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_chercheur_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des Chercheurs
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Edit</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_chercheur_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_chercheur_edit', {'id': chercheur.id}) }}">Edit<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ chercheur.id }}</td>
+        </tr>
+        <tr>
+            <th>Chno</th>
+            <td>{{ chercheur.chno }}</td>
+        </tr>
+        <tr>
+            <th>Chnom</th>
+            <td>{{ chercheur.chnom }}</td>
+        </tr>
+        <tr>
+            <th>Grade</th>
+            <td>{{ chercheur.grade }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ chercheur.status }}</td>
+        </tr>
+        <tr>
+            <th>Daterecrut</th>
+            <td>{{ chercheur.daterecrut }}</td>
+        </tr>
+        <tr>
+            <th>Salaire</th>
+            <td>{{ chercheur.salaire }}</td>
+        </tr>
+        <tr>
+            <th>Prime</th>
+            <td>{{ chercheur.prime }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ chercheur.email }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {{ include('chercheur/_delete_form.html.twig') }}
+
+{% endblock %}

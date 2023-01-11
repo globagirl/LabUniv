@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Publier{% endblock %}
+
+{% block body %}
+    <h1>Edit Publier</h1>
+
+    {{ include('publier/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_publier_index') }}">back to list</a>
+
+    {{ include('publier/_delete_form.html.twig') }}
+{% endblock %}

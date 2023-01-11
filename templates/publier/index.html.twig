@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publier index{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_publier_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_publier_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rang</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for publier in publiers %}
+            <tr>
+                <td>{{ publier.id }}</td>
+                <td>{{ publier.rang }}</td>
+                <td>
+                    <a href="{{ path('app_publier_show', {'id': publier.id}) }}">show</a>
+                    <a href="{{ path('app_publier_edit', {'id': publier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

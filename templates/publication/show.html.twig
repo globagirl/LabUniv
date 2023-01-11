@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publication{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_chercheur_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des publications
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Liste</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_publication_edit', {'id': publication.id}) }}">Edit<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_publication_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Pubno</th>
+                <td>{{ publication.pubno }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ publication.titre }}</td>
+            </tr>
+            <tr>
+                <th>Theme</th>
+                <td>{{ publication.theme }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ publication.typepub }}</td>
+            </tr>
+            <tr>
+                <th>Volume</th>
+                <td>{{ publication.volume }}</td>
+            </tr>
+            <tr>
+                <th>Date publication</th>
+                <td>{{ publication.datepub ? publication.datepub|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Apparition</th>
+                <td>{{ publication.apparition }}</td>
+            </tr>
+            <tr>
+                <th>Editeur</th>
+                <td>{{ publication.editeur }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ include('publication/_delete_form.html.twig') }}
+{% endblock %}

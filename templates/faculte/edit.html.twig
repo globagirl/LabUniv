@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Faculte{% endblock %}
+ {% block pagetitle %}
+     <a href="{{ path('app_faculte_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des faculte
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Edit</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_faculte_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+
+
+    {{ include('faculte/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('faculte/_delete_form.html.twig') }}
+
+{% endblock %}

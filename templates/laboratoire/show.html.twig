@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Laboratoire{% endblock %}
+
+ {% block pagetitle %}
+     <a href="{{ path('app_laboratoire_index') }}"><span class="fa fa-list" aria-hidden="true"></span>
+         <div class="header-section text-center">
+             Liste des Laboratoires
+         </div>
+     </a>
+ {% endblock %}
+ {% block menu %}
+     <div class="header-section text-center">
+         <h3>Details</h3>
+     </div>
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_laboratoire_edit', {'id': laboratoire.id}) }}">Edit<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+
+     <div class="read-button mt-5 pull-right"><a href="{{ path('app_laboratoire_new') }}">Create new<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a></div>
+ {% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ laboratoire.id }}</td>
+            </tr>
+            <tr>
+                <th>Labno</th>
+                <td>{{ laboratoire.labno }}</td>
+            </tr>
+            <tr>
+                <th>Labnom</th>
+                <td>{{ laboratoire.labnom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ include('laboratoire/_delete_form.html.twig') }}
+{% endblock %}
