@@ -1,6 +1,8 @@
 --tab6
-create table HISTORIQUE_CHERCHEURS (hisno NUMBER, chno number, chnom varchar2(50) , grade varchar2(2) , 
-statut char, daterecrut date, salaire number(7,2), prime number(7,2), email varchar2(100), 
+create table HISTORIQUE_CHERCHEURS (hisno NUMBER, chno number, 
+chnom varchar2(50) , grade varchar2(2) , 
+statut char, daterecrut date, salaire number(7,2), 
+prime number(7,2), email varchar2(100), 
 supno NUMBER, labno NUMBER, facno NUMBER,
 constraint pk_historique_ch primary key (hisno)
 );
@@ -15,6 +17,7 @@ begin
  'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
  end if;
 end;
+
 -- ajout chaque modif de chercheur -> tab historique
 CREATE OR REPLACE TRIGGER CHERCHEUR_BUI
 BEFORE DELETE OR UPDATE OR INSERT ON CHERCHEUR FOR EACH ROW

@@ -39,7 +39,6 @@ class ChercheurController extends AbstractController
                 $p_supno=null;
             }
 
-
             $sql = 'call AJOUT_CHERCHEUR(:p_chnom, :p_grade, :p_statut, :p_daterecrut, :p_salaire,
         :p_prime, :p_email,:p_supno, :p_labno, :p_facno)';
 
@@ -56,22 +55,6 @@ class ChercheurController extends AbstractController
                 ':p_labno'=>$chercheur->getLabno()->getId(),
                 ':p_facno'=>$chercheur->getFacno()->getId()
             ]);
-
-//            $sql = 'call AJOUT_CHERCHEUR(:p_chnom, :p_grade, :p_statut, :p_daterecrut, :p_salaire,
-//        :p_prime, :p_email,:p_supno, :p_labno, :p_facno)';
-//            $stmt = $entityManager->getConnection()->prepare($sql);
-//            $stmt->executeQuery([
-//                ':p_chnom'=>'anis',
-//                ':p_grade'=>'D',
-//                ':p_statut'=>'C',
-//                ':p_daterecrut'=>'2022-01-01',
-//                ':p_salaire'=>600,
-//                ':p_prime'=>150,
-//                ':p_email'=>'anis24@gmail.com',
-//                ':p_supno'=>null,
-//                ':p_labno'=>'dev',
-//                ':p_facno'=>'test'
-//            ]);
 
             return $this->redirectToRoute('app_chercheur_index', [], Response::HTTP_SEE_OTHER);
         }
